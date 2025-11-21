@@ -1,2 +1,2 @@
 # My_Game01
-게임개발 연습
+- Just practice making game With LOVE2D, Lua
