@@ -17,9 +17,10 @@ function love.update(dt)
             player.isRun = false
         end
         player.runCooldownTimer = 2
-        if player.runCooldownTimer > 0 then
-            player.runCooldownTimer = player.runCooldownTimer - dt
-        end
+    end
+
+    if player.runCooldownTimer > 0 then
+        player.runCooldownTimer = player.runCooldownTimer - dt
     end
 
     player.speed = player.isRun and 400 or 200
@@ -39,6 +40,8 @@ function love.update(dt)
 end
 
 function love.draw()
+    love.graphics.print(player.runCooldownTimer > 0 and 
+        string.format("Run Cooldown: %.2f", player.runCooldownTimer) or "Run Ready", 10, 10)
     love.graphics.setColor(0.2, 0.6, 0.7)
     love.graphics.circle("fill", player.x, player.y, 20)
 end
